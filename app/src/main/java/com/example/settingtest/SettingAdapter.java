@@ -1,11 +1,6 @@
 package com.example.settingtest;
 
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseNodeAdapter;
 import com.chad.library.adapter.base.entity.node.BaseNode;
@@ -23,12 +18,7 @@ import java.util.List;
  * My Application
  */
 public class SettingAdapter extends BaseNodeAdapter {
-
-    public SettingAdapter() {
-        super();
-        addNodeProvider(new RootNodeProvider());
-        addNodeProvider(new SecondNodeProvider());
-    }
+    private onItemSwitchListener listener;
 
     public SettingAdapter(@Nullable List<BaseNode> nodeList) {
         super(nodeList);
@@ -40,29 +30,29 @@ public class SettingAdapter extends BaseNodeAdapter {
     protected int getItemType(@NotNull List<? extends BaseNode> list, int i) {
         BaseNode node = list.get(i);
         if (node instanceof SettingFirstData) {
-            return SettingFirstData.VIEW_TYPE_DEV;
+            return SettingFirstData.VIEW_TYPE_EXPAND;
         } else if (node instanceof SettingSecondData) {
             return SettingFirstData.VIEW_TYPE;
         }
         return -1;
     }
 
+    public void setItemSwitchListener(onItemSwitchListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onBindViewHolder(@NotNull BaseViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        SwitchMaterial switchMaterial=holder.getView(R.id.switch_setting);
-        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-//                    expand(position);
-                    Log.d("kangkang adapter","expand");
-                }else {
-//                    collapse(position);
-
-                    Log.d("kangkang adapter","collapse");
-                }
+//        if(holder.getItemViewType()==SettingFirstData.VIEW_TYPE_EXPAND) {
+            SwitchMaterial switchMaterial = holder.getView(R.id.switch_setting);
+            if (listener != null) {
+                switchMaterial.setOnCheckedChangeListener((compoundButton, b) -> listener.onItemCheckedChanged(compoundButton,holder.getItemViewType(), b, position));
             }
-        });
+//        }else if()
+    }
+
+    public interface onItemSwitchListener {
+        void onItemCheckedChanged(View view, int viewType,Boolean isChecked, int position);
     }
 }

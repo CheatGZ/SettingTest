@@ -15,11 +15,11 @@ import java.util.List;
 public class SettingFirstData extends BaseExpandNode {
 
     /**
-     *开发者选项
+     *可展开项
      */
-    public static final int VIEW_TYPE_DEV=0;
+    public static final int VIEW_TYPE_EXPAND =0;
     /**
-     *其他选项
+     *普通项
      */
     public static final int VIEW_TYPE=1;
 

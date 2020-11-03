@@ -6,6 +6,7 @@ import android.widget.Switch;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.chad.library.adapter.base.provider.BaseNodeProvider;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,8 +31,8 @@ public class SecondNodeProvider extends BaseNodeProvider {
         SettingSecondData entity=(SettingSecondData)baseNode;
         baseViewHolder.setText(R.id.txt_setting,entity.getSetting());
         baseViewHolder.setText(R.id.txt_setting_description,entity.getSettingDescription());
-//        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch status=baseViewHolder.getView(R.id.switch_setting);
-//        status.setChecked(entity.getStatus());
+        @SuppressLint("UseSwitchCompatOrMaterialCode") SwitchMaterial status=baseViewHolder.getView(R.id.switch_setting);
+        status.setChecked(entity.getStatus());
     }
 
 

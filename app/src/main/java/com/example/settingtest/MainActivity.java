@@ -1,23 +1,14 @@
 package com.example.settingtest;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private com.example.settingtest.databinding.ActivityMainBinding binding;
     private SettingAdapter mAdapter;
     private List<BaseNode> lists;
+    private Boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,30 +34,38 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         lists = getEntity();
         mAdapter = new SettingAdapter(lists);
-        SettingFirstData entity=(SettingFirstData)lists.get(0);
-        if(entity.getStatus()){
+        SettingFirstData entity = (SettingFirstData) lists.get(0);
+        if (entity.getStatus()) {
             mAdapter.expand(0);
-        }else {
+        } else {
             mAdapter.collapse(0);
         }
-//
-//        mAdapter.addChildClickViewIds(R.id.switch_setting);
-//        mAdapter.setOnItemChildClickListener((adapter, view, position) -> {
-//            if(view.getId()==R.id.switch_setting){
-//                @SuppressLint("UseSwitchCompatOrMaterialCode") SwitchMaterial status= (SwitchMaterial) view;
-////                if(status.isChecked()){
-////                    mAdapter.expand(position);
-////                }else {
-////                    mAdapter.collapse(position);
-////                }
-//                if (!status.isPressed()) {
-//                    return;
-//                }
-//                mAdapter.expandOrCollapse(position);
-//            }
-//        });
+        flag = ((SettingFirstData) lists.get(0)).getStatus();
 
-
+        mAdapter.setItemSwitchListener((view, viewType, isChecked, position) -> {
+            if (!view.isPressed()) return;
+            if (isChecked) {
+                mAdapter.expand(position);
+                if (position == 0) flag = true;
+            } else {
+                mAdapter.collapse(position);
+                if (position == 0) flag = false;
+            }
+            if (position == 0) {
+                ((SettingFirstData) lists.get(position)).setStatus(flag);
+            } else {
+                if (flag) {
+                    if (viewType == SettingFirstData.VIEW_TYPE) {
+                        ((SettingSecondData) ((lists.get(0).getChildNode()).get(position - 1))).setStatus(isChecked);
+                    } else {
+                        ((SettingFirstData) lists.get(position - lists.get(0).getChildNode().size())).setStatus(isChecked);
+                    }
+                } else {
+                    ((SettingFirstData) lists.get(position)).setStatus(isChecked);
+                }
+            }
+            mAdapter.notifyDataSetChanged();
+        });
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         binding.revSetting.setLayoutManager(linearLayoutManager);

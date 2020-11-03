@@ -2,13 +2,11 @@ package com.example.settingtest;
 
 import android.annotation.SuppressLint;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.RadioGroup;
-import android.widget.Switch;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.chad.library.adapter.base.provider.BaseNodeProvider;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 public class RootNodeProvider extends BaseNodeProvider {
     @Override
     public int getItemViewType() {
-        return SettingFirstData.VIEW_TYPE_DEV;
+        return SettingFirstData.VIEW_TYPE_EXPAND;
     }
 
     @Override
@@ -33,8 +31,8 @@ public class RootNodeProvider extends BaseNodeProvider {
         SettingFirstData entity=(SettingFirstData)baseNode;
         baseViewHolder.setText(R.id.txt_setting,entity.getSetting());
         baseViewHolder.setText(R.id.txt_setting_description,entity.getSettingDescription());
-//        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch status=baseViewHolder.getView(R.id.switch_setting);
-//        status.setChecked(entity.getStatus());
+        @SuppressLint("UseSwitchCompatOrMaterialCode") SwitchMaterial status=baseViewHolder.getView(R.id.switch_setting);
+        status.setChecked(entity.getStatus());
     }
 
     @Override
