@@ -1,4 +1,4 @@
-package com.example.settingtest;
+package com.example.settingtest.Node;
 
 import com.chad.library.adapter.base.entity.node.BaseExpandNode;
 import com.chad.library.adapter.base.entity.node.BaseNode;
@@ -12,33 +12,21 @@ import java.util.List;
  * @date 2020/11/3
  * My Application
  */
-public class SettingFirstData extends BaseExpandNode {
-
-    /**
-     *可展开项
-     */
-    public static final int VIEW_TYPE_EXPAND =0;
-    /**
-     *普通项
-     */
-    public static final int VIEW_TYPE=1;
+public class ExpFirstNode extends BaseExpandNode {
 
     private List<BaseNode> childNode;
     private String imgUrl;
     private String setting;
     private String settingDescription;
     private Boolean status;
-    private int type;
 
-    public void setChildNode(List<BaseNode> childNode) {
-        this.childNode = childNode;
-    }
 
-    public SettingFirstData(List<BaseNode> childNode) {
+    public ExpFirstNode(List<BaseNode> childNode) {
         this.childNode = childNode;
         setExpanded(false);
     }
-    public SettingFirstData() {
+
+    public ExpFirstNode() {
         setExpanded(false);
     }
 
@@ -74,13 +62,13 @@ public class SettingFirstData extends BaseExpandNode {
         this.status = status;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
     @Nullable
     @Override
     public List<BaseNode> getChildNode() {
         return childNode;
+    }
+
+    public void setChildNode(List<BaseNode> childNode) {
+        this.childNode = childNode;
     }
 }

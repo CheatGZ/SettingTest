@@ -1,6 +1,5 @@
-package com.example.settingtest;
+package com.example.settingtest.Node;
 
-import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 
 import org.jetbrains.annotations.Nullable;
@@ -12,7 +11,7 @@ import java.util.List;
  * @date 2020/11/3
  * My Application
  */
-public class SettingSecondData extends BaseNode {
+public class ExpSecondNode extends BaseNode {
 
     /**
      *开发者选项
@@ -27,7 +26,6 @@ public class SettingSecondData extends BaseNode {
     private String setting;
     private String settingDescription;
     private Boolean status;
-    private int type;
 
     public String getImgUrl() {
         return imgUrl;
@@ -61,9 +59,6 @@ public class SettingSecondData extends BaseNode {
         this.status = status;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
 
     @Nullable
     @Override
