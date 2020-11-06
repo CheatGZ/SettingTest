@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.settingtest.Adapter.AppManageAdapter;
 import com.example.settingtest.Node.AppAuthorityNode;
-import com.example.settingtest.R;
 import com.example.settingtest.databinding.FragmentAppManageBinding;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class AppManageFragment extends Fragment {
     }
 
     private void initView() {
-        binding.btnBack.setOnClickListener(v -> NavHostFragment.findNavController(AppManageFragment.this).navigate(R.id.action_app_manage_fragment_to_privacy_fragment));
+        binding.btnBack.setOnClickListener(v -> NavHostFragment.findNavController(AppManageFragment.this).popBackStack());
 
         lists = new ArrayList<>();
         AppAuthorityNode appAuthorityNode1 = new AppAuthorityNode("存储", "功能说明", "", true);

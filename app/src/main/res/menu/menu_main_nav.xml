@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/commonFragment"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="通用"/>
+    <item
+        android:id="@+id/action_network"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="网络和蓝牙" />
+    <item
+        android:id="@+id/action_hand_shake"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="手柄" />
+    <item
+        android:id="@+id/action_safe_system"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="防护系统" />
+    <item
+        android:id="@+id/privacyFragment"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="隐私" />
+
+    <item
+        android:id="@+id/action_exp"
+        android:icon="@mipmap/ic_question"
+        android:orderInCategory="100"
+        android:title="实验室功能" />
+</menu>

@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.settingtest.R;
 import com.example.settingtest.databinding.FragmentPrivacyStatementBinding;
 
 /**
@@ -26,7 +25,7 @@ public class PrivacyStatementFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding=FragmentPrivacyStatementBinding.inflate(inflater);
         binding.btnBack.setOnClickListener(v->{
-            NavHostFragment.findNavController(PrivacyStatementFragment.this).navigate(R.id.action_privacy_statement_fragment_to_privacy_fragment);
+            NavHostFragment.findNavController(PrivacyStatementFragment.this).popBackStack();
         });
         return binding.getRoot();
     }

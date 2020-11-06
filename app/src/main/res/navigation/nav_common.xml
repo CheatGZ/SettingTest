@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_common"
+    app:startDestination="@id/commonFragment">
+
+    <fragment
+        android:id="@+id/commonFragment"
+        android:name="com.example.settingtest.Fragment.CommonFragment"
+        android:label="fragment_common"
+        tools:layout="@layout/fragment_common" >
+        <action
+            android:id="@+id/action_commonFragment_to_systemInfoFragment"
+            app:destination="@id/systemInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_commonFragment_to_aboutmachineFragment"
+            app:destination="@id/aboutMachineFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/systemInfoFragment"
+        android:name="com.example.settingtest.Fragment.SystemInfoFragment"
+        android:label="fragment_system_info"
+        tools:layout="@layout/fragment_system_info" />
+    <fragment
+        android:id="@+id/aboutMachineFragment"
+        android:name="com.example.settingtest.Fragment.AboutMachineFragment"
+        android:label="fragment_aboutmachine"
+        tools:layout="@layout/fragment_about_machine" >
+        <action
+            android:id="@+id/action_aboutMachineFragment_to_storeManageFragment"
+            app:destination="@id/storeManageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/storeManageFragment"
+        android:name="com.example.settingtest.Fragment.StoreManageFragment"
+        android:label="fragment_store_manage"
+        tools:layout="@layout/fragment_store_manage" />
+
+</navigation>

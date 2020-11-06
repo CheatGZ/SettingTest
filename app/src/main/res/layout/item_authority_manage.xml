@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="40dp"
-    android:layout_marginEnd="40dp"
     android:layout_marginTop="20dp"
+    android:layout_marginEnd="40dp"
     android:background="@color/gray"
     android:paddingTop="25dp"
     android:paddingBottom="25dp">
@@ -36,12 +36,12 @@
         android:id="@+id/txt_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/txt_title"
         app:layout_constraintTop_toBottomOf="@id/txt_title"
-        tools:text="@string/nav_app_bar_navigate_up_description"
-        android:layout_marginTop="5dp"/>
+        tools:text="@string/nav_app_bar_navigate_up_description" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/btn_switch"

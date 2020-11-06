@@ -14,4 +14,5 @@ public class NodeType {
      * 二级普通项
      */
     public static final int VIEW_TYPE_SECOND = 1;
+
 }
