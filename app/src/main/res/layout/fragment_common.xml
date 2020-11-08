@@ -20,12 +20,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-           <com.example.settingtest.View.LabelView
-               android:id="@+id/label_about_machine"
+            <com.example.settingtest.View.LabelView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:labelType="LABEL_GOTO"
                 app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_GOTO"
                 app:titleText="关于本机" />
 
             <include

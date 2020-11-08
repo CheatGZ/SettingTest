@@ -46,6 +46,7 @@ class CommonFragment : Fragment() {
         binding = FragmentCommonBinding.inflate(inflater)
 
 
+
         initView()
         return binding.root
     }

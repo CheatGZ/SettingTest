@@ -36,12 +36,11 @@ class LabelView(context: Context, labelType: Int) : ConstraintLayout(context) {
 
         binding.imgIcon.setImageDrawable(imgIcon)
         binding.txtTitle.text = "txtTitle"
-        if (txtTitle == null || txtTitle.isEmpty()) {
+        if (txtDescription == null || txtDescription.isEmpty()) {
             binding.txtDescription.visibility = View.GONE
         } else {
             binding.txtDescription.text = txtDescription
         }
-
         binding.btnSwitch.isChecked = switchStatus
         if (labelType == 0) {
             binding.layoutGoto.visibility = View.VISIBLE
