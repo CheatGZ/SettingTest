@@ -27,7 +27,7 @@ public class PrivacyFirstNodeProvider extends BaseNodeProvider {
 
     @Override
     public int getLayoutId() {
-        return R.layout.item_privacy;
+        return R.layout.view_goto_label;
     }
 
     @Override

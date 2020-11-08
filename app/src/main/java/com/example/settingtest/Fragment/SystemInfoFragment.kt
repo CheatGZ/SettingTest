@@ -9,15 +9,15 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.settingtest.databinding.FragmentSystemInfoBinding
 
 /**
- * A simple [Fragment] subclass.
- * Use the [SystemInfoFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * @author zhangyongkang
+ * @date 2020/11/5
+ * com.example.settingtest.View
  */
 class SystemInfoFragment : Fragment() {
     private lateinit var binding: FragmentSystemInfoBinding
     private val onClickListener = View.OnClickListener {
         when (it) {
-            binding.btnBack -> NavHostFragment.findNavController(this).popBackStack()
+            binding.btnBack -> NavHostFragment.findNavController(this).navigateUp()
         }
     }
 

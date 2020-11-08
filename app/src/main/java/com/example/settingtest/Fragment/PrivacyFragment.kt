@@ -1,6 +1,7 @@
 package com.example.settingtest.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ import java.util.*
  * @date 2020/11/4
  * SettingTest
  */
-class PrivacyFragment private constructor(): Fragment() {
+class PrivacyFragment : Fragment() {
     private lateinit var binding: FragmentPrivacyBinding
     private var mAdapter: PrivacyAdapter? = null
     private var lists: MutableList<BaseNode>? = null
@@ -55,11 +56,5 @@ class PrivacyFragment private constructor(): Fragment() {
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding!!.revPrivacy.layoutManager = linearLayoutManager
         binding!!.revPrivacy.adapter = mAdapter
-    }
-
-    companion object {
-        val instance: PrivacyFragment by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-            PrivacyFragment()
-        }
     }
 }

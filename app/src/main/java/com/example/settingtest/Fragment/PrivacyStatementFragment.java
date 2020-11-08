@@ -25,7 +25,7 @@ public class PrivacyStatementFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding=FragmentPrivacyStatementBinding.inflate(inflater);
         binding.btnBack.setOnClickListener(v->{
-            NavHostFragment.findNavController(PrivacyStatementFragment.this).popBackStack();
+            NavHostFragment.findNavController(PrivacyStatementFragment.this).navigateUp();
         });
         return binding.getRoot();
     }

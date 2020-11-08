@@ -13,14 +13,18 @@ import com.example.settingtest.Adapter.StoreInfoAdapter
 import com.example.settingtest.Node.StoreInfo
 import com.example.settingtest.R
 import com.example.settingtest.databinding.FragmentStoreManageBinding
-
+/**
+ * @author zhangyongkang
+ * @date 2020/11/5
+ * com.example.settingtest.View
+ */
 class StoreManageFragment : Fragment() {
     private lateinit var binding: FragmentStoreManageBinding
     private lateinit var mAdapter: StoreInfoAdapter
     private lateinit var list: MutableList<StoreInfo>
     private val onClickListener = View.OnClickListener {
         when (it) {
-            binding.btnBack -> NavHostFragment.findNavController(this).popBackStack()
+            binding.btnBack -> NavHostFragment.findNavController(this).navigateUp()
         }
     }
 

@@ -14,11 +14,10 @@ import com.example.settingtest.Node.ProportionNode
 import com.example.settingtest.R
 import com.example.settingtest.databinding.FragmentAboutMachineBinding
 
-
 /**
- * A simple [Fragment] subclass.
- * Use the [AboutMachineFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * @author zhangyongkang
+ * @date 11/8/20
+ * com.example.settingtest.View
  */
 class AboutMachineFragment : Fragment() {
     private lateinit var binding: FragmentAboutMachineBinding
@@ -30,7 +29,7 @@ class AboutMachineFragment : Fragment() {
 
     private val onClickListener = View.OnClickListener {
         when (it) {
-            binding.btnBack -> NavHostFragment.findNavController(this).popBackStack()
+            binding.btnBack -> NavHostFragment.findNavController(this).navigateUp()
             binding.labelStoreManage.layoutGoto -> NavHostFragment.findNavController(this).navigate(R.id.action_aboutMachineFragment_to_storeManageFragment)
         }
     }

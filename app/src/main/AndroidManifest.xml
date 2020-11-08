@@ -23,9 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ExpActivity" />
-        <activity android:name=".Activity.CommonActivity" />
-        <activity android:name=".Activity.PrivacyActivity" />
     </application>
 
 </manifest>

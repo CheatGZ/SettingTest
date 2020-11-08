@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/gray_dark">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout_nav"
+    <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/gray"
@@ -14,22 +14,62 @@
         app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guide_line"
-        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
+        <RadioButton
+            android:id="@+id/rb_user"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:icon="@mipmap/ic_question"
-            android:text="通用" />
+            android:layout_height="0dp"
+            android:layout_weight="1.8"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:drawableTop="@mipmap/ic_default"
+            android:text="Admin"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
-        <com.google.android.material.tabs.TabItem
+        <RadioButton
+            android:id="@+id/rb_common"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:icon="@mipmap/ic_question"
-            android:text="隐私" />
-    </com.google.android.material.tabs.TabLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:drawableStart="@mipmap/ic_question"
+            android:text="通用"
+            android:paddingStart="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_privacy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:drawableStart="@mipmap/ic_question"
+            android:text="隐私"
+            android:paddingStart="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_lab"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:drawableStart="@mipmap/ic_question"
+            android:text="实验室功能"
+            android:paddingStart="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+    </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_line"
@@ -38,12 +78,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.25" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guide_line"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

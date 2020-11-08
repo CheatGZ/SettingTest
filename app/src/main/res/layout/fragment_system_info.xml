@@ -35,11 +35,11 @@
 
             <include
                 android:id="@+id/layout_info"
-                layout="@layout/view_info_setting"/>
+                layout="@layout/view_info_label"/>
 
             <include
                 android:id="@+id/layout_version"
-                layout="@layout/view_info_setting" />
+                layout="@layout/view_info_label" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

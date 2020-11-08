@@ -2,8 +2,6 @@ package com.example.settingtest.Adapter;
 
 import com.chad.library.adapter.base.BaseNodeAdapter;
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.example.settingtest.Node.ExpFirstNode;
-import com.example.settingtest.Node.ExpSecondNode;
 import com.example.settingtest.Node.NodeType;
 import com.example.settingtest.Node.PrivacyFirstNode;
 import com.example.settingtest.Node.PrivacySecondNode;

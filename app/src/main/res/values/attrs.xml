@@ -3,4 +3,15 @@
         <attr name="fullscreenBackgroundColor" format="color" />
         <attr name="fullscreenTextColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="LabelSwitch">
+        <attr name="labelType">
+            <flag name="LABEL_SWITCH" value="0" />
+            <flag name="LABEL_GOTO" value="1" />
+        </attr>
+        <attr name="imageSrc" format="reference" />
+        <attr name="titleText" format="string" />
+        <attr name="descriptionText" format="string" />
+        <attr name="switchStatus" format="boolean" />
+    </declare-styleable>
 </resources>
