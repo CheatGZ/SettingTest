@@ -20,258 +20,254 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.example.settingtest.View.LabelView
-                android:id="@+id/label_system"
+           <com.example.settingtest.View.LabelView
+               android:id="@+id/label_about_machine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:imageSrc="@mipmap/ic_question"
                 app:labelType="LABEL_GOTO"
+                app:imageSrc="@mipmap/ic_question"
                 app:titleText="关于本机" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_about_machine"-->
-<!--                layout="@layout/view_goto_label" />-->
+            <include
+                android:id="@+id/label_system_info"
+                layout="@layout/view_goto_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_system_info"-->
-<!--                layout="@layout/view_goto_label" />-->
+            <include
+                android:id="@+id/label_voice_control"
+                layout="@layout/view_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_voice_control"-->
-<!--                layout="@layout/view_label" />-->
+            <include
+                android:id="@+id/label_eye_mode"
+                layout="@layout/view_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_eye_mode"-->
-<!--                layout="@layout/view_label" />-->
+            <include
+                android:id="@+id/label_luminance"
+                layout="@layout/view_goto_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_luminance"-->
-<!--                layout="@layout/view_goto_label" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_luminance"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="@dimen/dp_40"
+                android:background="@color/gray"
+                android:orientation="horizontal">
 
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:id="@+id/layout_luminance"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="100dp"-->
-<!--                android:layout_marginStart="40dp"-->
-<!--                android:layout_marginEnd="@dimen/dp_40"-->
-<!--                android:background="@color/gray"-->
-<!--                android:orientation="horizontal">-->
+                <TextView
+                    android:id="@+id/txt_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="暗"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txt_dark"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="60dp"-->
-<!--                    android:text="暗"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slide_luminance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:valueFrom="0"
+                    android:valueTo="255"
+                    app:labelBehavior="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txt_light"
+                    app:layout_constraintStart_toEndOf="@id/txt_dark"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:trackHeight="@dimen/dp_10" />
 
-<!--                <com.google.android.material.slider.Slider-->
-<!--                    android:id="@+id/slide_luminance"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="@dimen/dp_10"-->
-<!--                    android:layout_marginEnd="@dimen/dp_10"-->
-<!--                    android:valueFrom="0"-->
-<!--                    android:valueTo="255"-->
-<!--                    app:labelBehavior="gone"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toStartOf="@id/txt_light"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/txt_dark"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:trackHeight="@dimen/dp_10" />-->
+                <TextView
+                    android:id="@+id/txt_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    android:text="亮"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txt_light"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginEnd="@dimen/dp_40"-->
-<!--                    android:text="亮"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <include
+                android:id="@+id/label_theme"
+                layout="@layout/view_goto_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_theme"-->
-<!--                layout="@layout/view_goto_label" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rev_theme"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="@dimen/dp_40"
+                android:background="@color/gray">
 
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:id="@+id/rev_theme"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="300dp"-->
-<!--                android:layout_marginStart="40dp"-->
-<!--                android:layout_marginEnd="@dimen/dp_40"-->
-<!--                android:background="@color/gray">-->
+                <ImageView
+                    android:id="@+id/theme_one"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/teal_200"
+                    app:layout_constraintBottom_toTopOf="@id/theme_one_title"
+                    app:layout_constraintEnd_toStartOf="@id/theme_two"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/theme_one"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="60dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:background="@color/teal_200"-->
-<!--                    app:layout_constraintBottom_toTopOf="@id/theme_one_title"-->
-<!--                    app:layout_constraintEnd_toStartOf="@id/theme_two"-->
-<!--                    app:layout_constraintHorizontal_chainStyle="packed"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                <include
+                    android:id="@+id/theme_one_using"
+                    layout="@layout/view_in_using"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/theme_one"
+                    app:layout_constraintEnd_toEndOf="@id/theme_one"
+                    app:layout_constraintStart_toStartOf="@id/theme_one"
+                    app:layout_constraintTop_toTopOf="@id/theme_one" />
 
-<!--                <include-->
-<!--                    android:id="@+id/theme_one_using"-->
-<!--                    layout="@layout/view_in_using"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@id/theme_one"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/theme_one"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/theme_one"-->
-<!--                    app:layout_constraintTop_toTopOf="@id/theme_one" />-->
+                <TextView
+                    android:id="@+id/theme_one_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="主题名称"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/theme_one" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/theme_one_title"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:text="主题名称"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/theme_one" />-->
+                <ImageView
+                    android:id="@+id/theme_two"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@color/purple_200"
+                    app:layout_constraintBottom_toTopOf="@id/theme_two_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/theme_one"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/theme_two"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginEnd="40dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:src="@color/purple_200"-->
-<!--                    app:layout_constraintBottom_toTopOf="@id/theme_two_title"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/theme_one"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                <include
+                    android:id="@+id/theme_two_using"
+                    layout="@layout/view_in_using"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/theme_two"
+                    app:layout_constraintEnd_toEndOf="@id/theme_two"
+                    app:layout_constraintStart_toStartOf="@id/theme_two"
+                    app:layout_constraintTop_toTopOf="@id/theme_two" />
 
-<!--                <include-->
-<!--                    android:id="@+id/theme_two_using"-->
-<!--                    layout="@layout/view_in_using"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:visibility="gone"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@id/theme_two"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/theme_two"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/theme_two"-->
-<!--                    app:layout_constraintTop_toTopOf="@id/theme_two" />-->
+                <TextView
+                    android:id="@+id/theme_two_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="主题名称"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/theme_two" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/theme_two_title"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:text="主题名称"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/theme_two" />-->
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <include
+                android:id="@+id/label_energy"
+                layout="@layout/view_goto_label" />
 
-<!--            <include-->
-<!--                android:id="@+id/label_energy"-->
-<!--                layout="@layout/view_goto_label" />-->
-
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:id="@+id/layout_energy"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="100dp"-->
-<!--                android:layout_marginStart="40dp"-->
-<!--                android:layout_marginEnd="@dimen/dp_40"-->
-<!--                android:background="@color/gray"-->
-<!--                android:orientation="horizontal">-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_energy"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="@dimen/dp_40"
+                android:background="@color/gray"
+                android:orientation="horizontal">
 
 
-<!--                <com.google.android.material.slider.Slider-->
-<!--                    android:id="@+id/slide_energy"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="60dp"-->
-<!--                    android:layout_marginEnd="@dimen/dp_40"-->
-<!--                    android:stepSize="2"-->
-<!--                    android:valueFrom="0"-->
-<!--                    android:valueTo="8"-->
-<!--                    app:labelBehavior="gone"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:tickColorActive="@color/white"-->
-<!--                    app:tickColorInactive="@color/gray_light"-->
-<!--                    app:trackHeight="@dimen/dp_10" />-->
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slide_energy"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    android:stepSize="2"
+                    android:valueFrom="0"
+                    android:valueTo="8"
+                    app:labelBehavior="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tickColorActive="@color/white"
+                    app:tickColorInactive="@color/gray_light"
+                    app:trackHeight="@dimen/dp_10" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/slide_value_one"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="10dp"-->
-<!--                    android:text="30分钟"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintHorizontal_chainStyle="spread_inside"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/slide_energy"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />-->
+                <TextView
+                    android:id="@+id/slide_value_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:text="30分钟"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="@id/slide_energy"
+                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/slide_value_two"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginStart="30dp"-->
-<!--                    android:text="1小时"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toStartOf="@id/slide_value_three"-->
-<!--                    app:layout_constraintHorizontal_chainStyle="spread"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/slide_energy"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />-->
+                <TextView
+                    android:id="@+id/slide_value_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="30dp"
+                    android:text="1小时"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/slide_value_three"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="@id/slide_energy"
+                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/slide_value_three"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:text="4小时"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toStartOf="@id/slide_value_four"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/slide_value_two"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />-->
+                <TextView
+                    android:id="@+id/slide_value_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="4小时"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/slide_value_four"
+                    app:layout_constraintStart_toEndOf="@id/slide_value_two"
+                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/slide_value_four"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginEnd="30dp"-->
-<!--                    android:text="6小时"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/slide_energy"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/slide_value_three"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />-->
+                <TextView
+                    android:id="@+id/slide_value_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="6小时"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/slide_energy"
+                    app:layout_constraintStart_toEndOf="@id/slide_value_three"
+                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/slide_value_five"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:layout_marginEnd="@dimen/dp_10"-->
-<!--                    android:text="不自动关机"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/slide_energy"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />-->
+                <TextView
+                    android:id="@+id/slide_value_five"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:text="不自动关机"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/slide_energy"
+                    app:layout_constraintTop_toBottomOf="@id/slide_energy" />
 
 
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <include-->
-<!--                android:id="@+id/label_reset"-->
-<!--                layout="@layout/view_goto_label" />-->
+            <include
+                android:id="@+id/label_reset"
+                layout="@layout/view_goto_label" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
