@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginEnd="@dimen/dp_40"
+                android:layout_marginEnd="40dp"
                 android:background="@color/gray"
                 android:orientation="horizontal">
 
@@ -85,8 +85,8 @@
                     android:id="@+id/slide_luminance"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginStart="@dimen/dp_10"
-                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:valueFrom="0"
                     android:valueTo="255"
                     app:labelBehavior="gone"
@@ -94,13 +94,13 @@
                     app:layout_constraintEnd_toStartOf="@id/txt_light"
                     app:layout_constraintStart_toEndOf="@id/txt_dark"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:trackHeight="@dimen/dp_10" />
+                    app:trackHeight="10dp" />
 
                 <TextView
                     android:id="@+id/txt_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/dp_40"
+                    android:layout_marginEnd="40dp"
                     android:text="亮"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginEnd="@dimen/dp_40"
+                android:layout_marginEnd="40dp"
                 android:background="@color/gray">
 
                 <ImageView
@@ -209,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginEnd="@dimen/dp_40"
+                android:layout_marginEnd="40dp"
                 android:background="@color/gray"
                 android:orientation="horizontal">
 
@@ -219,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="60dp"
-                    android:layout_marginEnd="@dimen/dp_40"
+                    android:layout_marginEnd="40dp"
                     android:stepSize="2"
                     android:valueFrom="0"
                     android:valueTo="8"
@@ -229,7 +229,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:tickColorActive="@color/white"
                     app:tickColorInactive="@color/gray_light"
-                    app:trackHeight="@dimen/dp_10" />
+                    app:trackHeight="10dp" />
 
                 <TextView
                     android:id="@+id/slide_value_one"
@@ -283,7 +283,7 @@
                     android:id="@+id/slide_value_five"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_marginEnd="10dp"
                     android:text="不自动关机"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"

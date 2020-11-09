@@ -2,10 +2,10 @@ package com.example.settingtest.Fragment
 
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -45,17 +45,15 @@ class CommonFragment : Fragment() {
     private fun initView() {
         binding.labelAboutMachine.setOnClickListener(onClickListener)
         binding.labelSystemInfo.setOnClickListener(onClickListener)
-
-        binding.labelVoiceControl.setSwitchStatusChangedListener { _, isChecked ->
-            run {
+        binding.labelVoiceControl.setSwitchStatusChangedListener {
+            CompoundButton.OnCheckedChangeListener { btn, isChecked ->
                 Toast.makeText(requireContext(), "$isChecked", Toast.LENGTH_SHORT).show()
-                Log.d("kang", "$isChecked")
             }
         }
-        binding.labelEyeMode.setSwitchStatusChangedListener { _, isChecked ->
-            run {
+
+        binding.labelEyeMode.setSwitchStatusChangedListener {
+            CompoundButton.OnCheckedChangeListener { btn, isChecked ->
                 Toast.makeText(requireContext(), "$isChecked", Toast.LENGTH_SHORT).show()
-                Log.d("kang", "$isChecked")
             }
         }
 

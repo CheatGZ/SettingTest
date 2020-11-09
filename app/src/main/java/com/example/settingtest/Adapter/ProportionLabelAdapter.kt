@@ -4,10 +4,10 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.settingtest.Entity.ProportionData
 import com.example.settingtest.R
+import com.example.settingtest.View.BaseRecyclerViewAdapter
+import com.example.settingtest.View.BaseRecyclerViewHolder
 
 
 /**
@@ -15,9 +15,10 @@ import com.example.settingtest.R
  * @date 2020/11/6
  * SettingTest
  */
-class ProportionLabelAdapter(private val list: MutableList<ProportionData>) : BaseQuickAdapter<ProportionData, BaseViewHolder>(R.layout.item_proportion_label, list) {
+class ProportionLabelAdapter(list: MutableList<ProportionData>) : BaseRecyclerViewAdapter<ProportionData, BaseRecyclerViewHolder>(R.layout.item_proportion_label, list) {
+
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun convert(holder: BaseViewHolder, item: ProportionData) {
+    override fun convert(holder: BaseRecyclerViewHolder, item: ProportionData) {
         holder.setText(R.id.txt_label, item.name)
         val view = holder.getView<View>(R.id.img_label)
         val drawable = view.background as GradientDrawable
@@ -31,7 +32,6 @@ class ProportionLabelAdapter(private val list: MutableList<ProportionData>) : Ba
             ProportionData.COLOR_gray -> drawable.setColor(context.getColor(R.color.gray_light))
             else -> drawable.setColor(context.getColor(R.color.purple_200))
         }
-
         view.background = drawable
     }
 }

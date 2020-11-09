@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import androidx.fragment.app.Fragment
 import com.example.settingtest.databinding.FragmentLabBinding
 
@@ -22,14 +23,24 @@ class LabFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.labelDevMode.setSwitchStatusChangedListener { compoundButton, b ->
-            if (b) {
-                binding.labelStopVirtual.visibility = View.VISIBLE
-                binding.labelThirdApk.visibility = View.VISIBLE
-            } else {
-                binding.labelStopVirtual.visibility = View.GONE
-                binding.labelThirdApk.visibility = View.GONE
+        binding.labelDevMode.setSwitchStatusChangedListener {
+            CompoundButton.OnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+                if (b) {
+                    binding.labelStopVirtual.visibility = View.VISIBLE
+                    binding.labelThirdApk.visibility = View.VISIBLE
+                } else {
+                    binding.labelStopVirtual.visibility = View.GONE
+                    binding.labelThirdApk.visibility = View.GONE
+                }
             }
         }
+
+//        if (b) {
+//            binding.labelStopVirtual.visibility = View.VISIBLE
+//            binding.labelThirdApk.visibility = View.VISIBLE
+//        } else {
+//            binding.labelStopVirtual.visibility = View.GONE
+//            binding.labelThirdApk.visibility = View.GONE
+//        }
     }
 }

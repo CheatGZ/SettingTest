@@ -8,7 +8,6 @@ import android.view.ViewTreeObserver
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.settingtest.Adapter.ProportionAdapter
 import com.example.settingtest.Adapter.ProportionLabelAdapter
 import com.example.settingtest.Entity.ProportionData
@@ -60,14 +59,12 @@ class AboutMachineFragment : Fragment() {
         list.removeAt(list.size - 1)
         binding.btnBack.setOnClickListener(onClickListener)
 
-        binding.labelStoreManage.setGotoClickListener{
+        binding.labelStoreManage.setGotoClickListener(View.OnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.action_aboutMachineFragment_to_storeManageFragment)
-        }
+        })
 
 
         mAdapter = ProportionAdapter(maxStore, maxWidth, list)
-        mAdapter.animationEnable=true
-        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.SlideInLeft)
         binding.revProportion.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.revProportion.adapter = mAdapter
 

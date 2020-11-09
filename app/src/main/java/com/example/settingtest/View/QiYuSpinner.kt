@@ -12,7 +12,6 @@ import com.example.settingtest.R
 class QiYuSpinner : androidx.appcompat.widget.AppCompatSpinner {
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-//           this.dropDownVerticalOffset=this.height
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {

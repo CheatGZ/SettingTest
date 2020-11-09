@@ -3,15 +3,15 @@
     <item android:state_focused="false">
         <shape>
             <solid android:color="@color/gray_light" />
-            <corners android:bottomLeftRadius="@dimen/dp_4"
-                android:bottomRightRadius="@dimen/dp_4"/>
+            <corners android:bottomLeftRadius="4dp"
+                android:bottomRightRadius="4dp"/>
         </shape>
     </item>
     <item android:state_focused="true">
         <shape>
             <solid android:color="@color/gray_dark" />
-            <corners android:bottomLeftRadius="@dimen/dp_4"
-                android:bottomRightRadius="@dimen/dp_4"/>
+            <corners android:bottomLeftRadius="4dp"
+                android:bottomRightRadius="4dp"/>
         </shape>
     </item>
 </selector>

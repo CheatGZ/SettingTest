@@ -3,10 +3,10 @@ package com.example.settingtest.Adapter
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.settingtest.Entity.ProportionData
 import com.example.settingtest.R
+import com.example.settingtest.View.BaseRecyclerViewAdapter
+import com.example.settingtest.View.BaseRecyclerViewHolder
 
 /**
  * @author zhangyongkang01_sx
@@ -15,9 +15,10 @@ import com.example.settingtest.R
  */
 class ProportionAdapter(private val maxProportion: Float,
                         private val rootViewWidth: Int,
-                        private val list: MutableList<ProportionData>) : BaseQuickAdapter<ProportionData, BaseViewHolder>(R.layout.item_proportion,list) {
+                        list: MutableList<ProportionData>) : BaseRecyclerViewAdapter<ProportionData, BaseRecyclerViewHolder>(R.layout.item_proportion, list) {
+
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun convert(holder: BaseViewHolder, item: ProportionData) {
+    override fun convert(holder: BaseRecyclerViewHolder, item: ProportionData) {
         val view = holder.getView<View>(R.id.view_proportion)
         view.layoutParams.width = ((item.proportion / maxProportion) * rootViewWidth).toInt()
         when (item.color) {

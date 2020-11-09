@@ -50,6 +50,7 @@
                 android:paddingBottom="25dp"
                 app:descriptionText="功能描述"
                 app:labelType="LABEL_SWITCH"
+                android:visibility="gone"
                 app:titleText="未知来源应用安装" />
 
             <com.example.settingtest.View.LabelView
@@ -63,6 +64,7 @@
                 android:paddingBottom="25dp"
                 app:descriptionText="功能描述"
                 app:labelType="LABEL_SWITCH"
+                android:visibility="gone"
                 app:titleText="w位置来源应用安装" />
 
             <com.example.settingtest.View.LabelView

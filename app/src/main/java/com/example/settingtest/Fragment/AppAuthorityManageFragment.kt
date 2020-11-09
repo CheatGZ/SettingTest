@@ -1,9 +1,12 @@
 package com.example.settingtest.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +15,8 @@ import com.example.settingtest.Adapter.AppAuthorityManageAdapter
 import com.example.settingtest.Adapter.AppAuthorityManageAdapter.OnItemSwitchListener
 import com.example.settingtest.Entity.AppManageData
 import com.example.settingtest.R
+import com.example.settingtest.View.BaseRecyclerViewAdapter
+import com.example.settingtest.View.OnItemChildCheckChangedListener
 import com.example.settingtest.databinding.FragmentAppManageBinding
 import java.util.*
 
@@ -42,11 +47,22 @@ class AppAuthorityManageFragment : Fragment() {
         lists.add(appAuthorityNode3)
         lists.add(appAuthorityNode4)
         mAdapter = AppAuthorityManageAdapter(lists)
-        mAdapter.setItemSwitchListener(object : OnItemSwitchListener {
-            override fun onItemCheckedChanged(view: View?, isChecked: Boolean?, position: Int) {
-                lists[position].status = isChecked!!
-            }
+//        mAdapter.setItemSwitchListener(object : OnItemSwitchListener {
+//            override fun onItemCheckedChanged(view: View?, isChecked: Boolean?, position: Int) {
+//                lists[position].status = isChecked!!
+//            }
+//
+//        })
 
+        mAdapter.addChildClickViewIds(R.id.btn_switch)
+        mAdapter.setOnItemChildCheckChangedListener(object :OnItemChildCheckChangedListener{
+            override fun onItemChildCheckChanged(adapter: BaseRecyclerViewAdapter<*, *>, view: CompoundButton, position: Int) {
+                if (!view.isPressed) {
+                    return
+                }
+                lists[position].status = view.isChecked
+                Toast.makeText(context, "click is $position ,status is ${view.isChecked}", Toast.LENGTH_SHORT).show()
+            }
         })
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding!!.revAppManage.layoutManager = linearLayoutManager

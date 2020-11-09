@@ -1,6 +1,7 @@
 package com.example.settingtest.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.settingtest.Adapter.AppManageAdapter
 import com.example.settingtest.Entity.AppAuthorityData
 import com.example.settingtest.R
+import com.example.settingtest.View.BaseRecyclerViewAdapter
+import com.example.settingtest.View.OnItemChildClickListener
+import com.example.settingtest.View.OnItemClickListener
 import com.example.settingtest.databinding.FragmentPrivacyBinding
 import java.util.*
 
@@ -42,9 +46,12 @@ class PrivacyFragment : Fragment() {
             lists.add(AppAuthorityData("", "应用名称", "已开启存储、麦克风、定位权限"))
         }
         mAdapter = AppManageAdapter(lists)
-        mAdapter.setOnItemClickListener { adapter, view, position ->
-            NavHostFragment.findNavController(this).navigate(R.id.action_privacy_fragment_to_app_manage_fragment)
-        }
+        mAdapter.setOnItemClickListener(object : OnItemClickListener {
+            override fun onItemClick(adapter: BaseRecyclerViewAdapter<*, *>, view: View, position: Int) {
+                NavHostFragment.findNavController(this@PrivacyFragment).navigate(R.id.action_privacy_fragment_to_app_manage_fragment)
+            }
+        })
+
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding!!.revApp.layoutManager = linearLayoutManager
         binding!!.revApp.adapter = mAdapter

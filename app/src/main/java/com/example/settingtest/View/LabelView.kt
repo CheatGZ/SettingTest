@@ -91,13 +91,10 @@ class LabelView : ConstraintLayout {
     }
 
     /** 设置switch状态监听 */
-    fun setSwitchStatusChangedListener(onCheckedChangeListener: CompoundButton.OnCheckedChangeListener) {
-        binding.btnSwitch.setOnCheckedChangeListener(onCheckedChangeListener)
+    fun setSwitchStatusChangedListener(onCheckedChangeListener: () -> CompoundButton.OnCheckedChangeListener) {
+        binding.btnSwitch.setOnCheckedChangeListener(onCheckedChangeListener.invoke())
     }
 
-    fun getSwitch(): SwitchMaterial {
-        return binding.btnSwitch
-    }
 
 
     companion object {
