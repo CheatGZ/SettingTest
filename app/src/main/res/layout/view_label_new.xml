@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="40dp"
-    android:background="@color/gray"
-    android:paddingTop="25dp"
-    android:paddingBottom="25dp">
+    android:id="@+id/layout_root">
 
     <ImageView
         android:id="@+id/img_icon"
-        android:layout_width="17dp"
-        android:layout_height="18dp"
+        android:layout_width="20dp"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,13 +22,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@id/txt_description"
         app:layout_constraintStart_toEndOf="@id/img_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="adasc"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/txt_description"
         style="@style/style_label_description"
-        android:text="asdasd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_icon"
         app:layout_constraintTop_toBottomOf="@id/txt_title"/>
@@ -61,11 +55,11 @@
         android:layout_height="0dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/barrier1"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/img_notify"
@@ -77,7 +71,6 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/img_go_to"
             app:layout_constraintEnd_toStartOf="@id/txt_notify"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/img_go_to" />
 
         <TextView

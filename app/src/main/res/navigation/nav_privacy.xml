@@ -30,6 +30,6 @@
         tools:layout="@layout/fragment_privacy_statement" />
     <fragment
         android:id="@+id/app_manage_fragment"
-        android:name="com.example.settingtest.Fragment.AppManageFragment"
+        android:name="com.example.settingtest.Fragment.AppAuthorityManageFragment"
         tools:layout="@layout/fragment_app_manage" />
 </navigation>

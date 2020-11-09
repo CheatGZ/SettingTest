@@ -21,27 +21,45 @@
             android:orientation="vertical">
 
             <com.example.settingtest.View.LabelView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/label_about_machine"
                 app:imageSrc="@mipmap/ic_question"
                 app:labelType="LABEL_GOTO"
-                app:titleText="关于本机" />
+                app:titleText="关于本机"
+                style="@style/style_label"  />
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_system_info"
-                layout="@layout/view_goto_label" />
+                app:descriptionText="QIYU OS 5.0"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_GOTO"
+                app:titleText="系统信息"
+                style="@style/style_label" />
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_voice_control"
-                layout="@layout/view_label" />
+                app:descriptionText="功能描述"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_SWITCH"
+                app:titleText="语音控制"
+                app:switchStatus="true"
+                style="@style/style_label" />
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_eye_mode"
-                layout="@layout/view_label" />
+                app:descriptionText="功能描述，调节屏幕亮度"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_SWITCH"
+                app:titleText="护眼模式"
+                style="@style/style_label"  />
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_luminance"
-                layout="@layout/view_goto_label" />
+                app:descriptionText="功能描述，调节屏幕亮度"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_NULL"
+                app:titleText="亮度调节"
+                style="@style/style_label" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_luminance"
@@ -90,9 +108,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_theme"
-                layout="@layout/view_goto_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:descriptionText="选择奇遇Home中默认使用的主题"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_NULL"
+                app:titleText="虚拟主题"
+                style="@style/style_label"  />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rev_theme"
@@ -171,9 +195,14 @@
                     app:layout_constraintStart_toStartOf="@id/theme_two" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include
+
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_energy"
-                layout="@layout/view_goto_label" />
+                app:descriptionText="功能描述，设置自动关机时间"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_NULL"
+                app:titleText="电源管理"
+                style="@style/style_label"  />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_energy"
@@ -264,9 +293,12 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_reset"
-                layout="@layout/view_goto_label" />
+                style="@style/style_label"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_GOTO"
+                app:titleText="恢复出厂设置" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

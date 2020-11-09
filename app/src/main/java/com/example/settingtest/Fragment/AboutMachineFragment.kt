@@ -8,9 +8,10 @@ import android.view.ViewTreeObserver
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.settingtest.Adapter.ProportionAdapter
 import com.example.settingtest.Adapter.ProportionLabelAdapter
-import com.example.settingtest.Node.ProportionNode
+import com.example.settingtest.Entity.ProportionData
 import com.example.settingtest.R
 import com.example.settingtest.databinding.FragmentAboutMachineBinding
 
@@ -23,14 +24,13 @@ class AboutMachineFragment : Fragment() {
     private lateinit var binding: FragmentAboutMachineBinding
     private lateinit var mAdapter: ProportionAdapter
     private lateinit var mLabelAdapter: ProportionLabelAdapter
-    private lateinit var list: MutableList<ProportionNode>
+    private lateinit var list: MutableList<ProportionData>
     private var maxStore: Float = 0f
     private var maxWidth: Int = 0
 
     private val onClickListener = View.OnClickListener {
         when (it) {
             binding.btnBack -> NavHostFragment.findNavController(this).navigateUp()
-            binding.labelStoreManage.layoutGoto -> NavHostFragment.findNavController(this).navigate(R.id.action_aboutMachineFragment_to_storeManageFragment)
         }
     }
 
@@ -52,21 +52,22 @@ class AboutMachineFragment : Fragment() {
     private fun initView() {
         maxStore = 100f
         list = ArrayList()
-        list.add(ProportionNode("001", "系统", 40f, ProportionNode.COLOR_GREEN))
-        list.add(ProportionNode("002", "应用", 20f, ProportionNode.COLOR_BLUE))
-        list.add(ProportionNode("003", "视频", 10f, ProportionNode.COLOR_WHITE))
-        list.add(ProportionNode("004", "图片", 5f, ProportionNode.COLOR_ORANGE))
-        list.add(ProportionNode("005", "其他", 5f, ProportionNode.COLOR_RED))
+        list.add(ProportionData("001", "系统", 40f, ProportionData.COLOR_GREEN))
+        list.add(ProportionData("002", "应用", 20f, ProportionData.COLOR_BLUE))
+        list.add(ProportionData("003", "视频", 10f, ProportionData.COLOR_WHITE))
+        list.add(ProportionData("004", "图片", 5f, ProportionData.COLOR_ORANGE))
+        list.add(ProportionData("005", "其他", 5f, ProportionData.COLOR_RED))
         list.removeAt(list.size - 1)
         binding.btnBack.setOnClickListener(onClickListener)
 
-        binding.labelStoreManage.txtTitle.text = "设备存储空间"
-        binding.labelStoreManage.txtDescription.text = "16.5G可用/128G"
-        binding.labelStoreManage.txtNotify.text = "管理"
-        binding.labelStoreManage.layoutGoto.setOnClickListener(onClickListener)
+        binding.labelStoreManage.setGotoClickListener{
+            NavHostFragment.findNavController(this).navigate(R.id.action_aboutMachineFragment_to_storeManageFragment)
+        }
 
 
         mAdapter = ProportionAdapter(maxStore, maxWidth, list)
+        mAdapter.animationEnable=true
+        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.SlideInLeft)
         binding.revProportion.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.revProportion.adapter = mAdapter
 
@@ -74,10 +75,5 @@ class AboutMachineFragment : Fragment() {
         binding.revProportionLabel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.revProportionLabel.adapter = mLabelAdapter
 
-
-
-        binding.labelHardwareInfo.txtTitle.text = "一体机硬件信息"
-        binding.labelHardwareInfo.txtDescription.visibility = View.VISIBLE
-        binding.labelHardwareInfo.imgGoTo.visibility = View.GONE
     }
 }

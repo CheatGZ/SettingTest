@@ -1,11 +1,11 @@
-package com.example.settingtest.Node
+package com.example.settingtest.Entity
 
 /**
  * @author zhangyongkang01_sx
  * @date 2020/11/6
  * SettingTest
  */
-data class ProportionNode(val id: String, val name: String, val proportion: Float, val color: Int) {
+data class ProportionData(val id: String, val name: String, val proportion: Float, val color: Int) {
     /**
      * proportion 颜色
      */

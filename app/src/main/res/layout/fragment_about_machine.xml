@@ -36,9 +36,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_store_manage"
-                layout="@layout/view_goto_label" />
+                style="@style/style_label"
+                app:descriptionText="16.5G/128G"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_GOTO"
+                app:titleText="设备存储空间" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_store"
@@ -54,10 +58,10 @@
                     android:layout_height="35dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginEnd="@dimen/dp_40"
+                    android:background="@color/gray_light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@color/gray_light"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rev_proportion_label"
@@ -71,9 +75,12 @@
                     app:layout_constraintTop_toBottomOf="@id/rev_proportion" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include
+            <com.example.settingtest.View.LabelView
                 android:id="@+id/label_hardware_info"
-                layout="@layout/view_goto_label" />
+                style="@style/style_label"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_NULL"
+                app:titleText="本机硬件信息" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rev_hardware_info"

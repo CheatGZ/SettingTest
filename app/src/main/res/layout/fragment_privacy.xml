@@ -10,14 +10,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rev_privacy"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_title" />
+        app:layout_constraintTop_toBottomOf="@id/txt_title">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.settingtest.View.LabelView
+                android:id="@+id/label_privacy_state"
+                style="@style/style_label"
+                android:layout_width="match_parent"
+                app:descriptionText="功能描述"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_GOTO"
+                app:titleText="隐私说明" />
+
+            <com.example.settingtest.View.LabelView
+                android:id="@+id/label_app_manage"
+                style="@style/style_label"
+                app:descriptionText="功能描述（管理应用能够使用的权限，如麦克风、访问存储空间）"
+                app:imageSrc="@mipmap/ic_question"
+                app:labelType="LABEL_NULL"
+                app:titleText="应用权限管理" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_app"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/label_app_manage" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

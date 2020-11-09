@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="spinner_kind">
+        <item>应用程序</item>
+        <item>视频</item>
+        <item>图片</item>
+        <item>其他</item>
+    </array>
+    <array name="spinner_time">
+        <item>最近使用</item>
+        <item>超过1个月</item>
+        <item>超过3个月</item>
+        <item>超过1年</item>
+    </array>
+</resources>

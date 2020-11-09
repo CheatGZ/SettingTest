@@ -29,7 +29,7 @@
             android:paddingTop="20dp"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/rb_common"
@@ -40,9 +40,10 @@
             android:button="@null"
             android:drawableStart="@mipmap/ic_question"
             android:text="通用"
-            android:paddingStart="20dp"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:paddingStart="50dp"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:drawablePadding="15dp"/>
 
         <RadioButton
             android:id="@+id/rb_privacy"
@@ -53,8 +54,9 @@
             android:button="@null"
             android:drawableStart="@mipmap/ic_question"
             android:text="隐私"
-            android:paddingStart="20dp"
-            android:textAlignment="center"
+            android:paddingStart="50dp"
+            android:drawablePadding="15dp"
+            android:textSize="30dp"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -62,12 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:textSize="30dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
             android:drawableStart="@mipmap/ic_question"
             android:text="实验室功能"
-            android:paddingStart="20dp"
-            android:textAlignment="center"
+            android:paddingStart="50dp"
+            android:drawablePadding="15dp"
             android:textColor="@color/white" />
     </RadioGroup>
 
