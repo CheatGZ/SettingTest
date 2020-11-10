@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_dark">
@@ -25,9 +26,9 @@
             android:background="@drawable/selector_radio_button"
             android:button="@null"
             android:drawableTop="@mipmap/ic_default"
-            android:text="Admin"
+            android:paddingStart="50dp"
             android:paddingTop="20dp"
-            android:textAlignment="center"
+            android:text="Admin"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -38,12 +39,12 @@
             android:layout_weight="1"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:drawableStart="@mipmap/ic_question"
-            android:text="通用"
+            android:drawableStart="@mipmap/ic_default"
+            android:drawablePadding="15dp"
             android:paddingStart="50dp"
+            android:text="通用"
             android:textColor="@color/white"
-            android:textSize="30dp"
-            android:drawablePadding="15dp"/>
+            android:textSize="30dp" />
 
         <RadioButton
             android:id="@+id/rb_privacy"
@@ -53,25 +54,25 @@
             android:background="@drawable/selector_radio_button"
             android:button="@null"
             android:drawableStart="@mipmap/ic_question"
-            android:text="隐私"
-            android:paddingStart="50dp"
             android:drawablePadding="15dp"
-            android:textSize="30dp"
-            android:textColor="@color/white" />
+            android:paddingStart="50dp"
+            android:text="隐私"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
         <RadioButton
             android:id="@+id/rb_lab"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="30dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
             android:drawableStart="@mipmap/ic_question"
-            android:text="实验室功能"
-            android:paddingStart="50dp"
             android:drawablePadding="15dp"
-            android:textColor="@color/white" />
+            android:paddingStart="50dp"
+            android:text="实验室功能"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
     </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
@@ -82,7 +83,7 @@
         app:layout_constraintGuide_percent="0.25" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager2"
+        android:id="@+id/view_pager2_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"

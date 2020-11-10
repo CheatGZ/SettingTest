@@ -9,10 +9,13 @@
             <enum name="LABEL_NULL" value="0" />
             <enum name="LABEL_SWITCH" value="1" />
             <enum name="LABEL_GOTO" value="2" />
+            <enum name="LABEL_BUTTON" value="3" />
         </attr>
         <attr name="imageSrc" format="reference" />
         <attr name="titleText" format="string" />
         <attr name="descriptionText" format="string" />
         <attr name="switchStatus" format="boolean" />
+        <attr name="btnOne" format="string" />
+        <attr name="btnTwo" format="string" />
     </declare-styleable>
 </resources>

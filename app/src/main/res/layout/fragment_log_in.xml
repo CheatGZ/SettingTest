@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_dark">
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="60dp"
+        android:src="@mipmap/ic_avatar"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@id/txt_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_icon"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <LinearLayout
+        android:id="@+id/layout_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/layout_auth_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintWidth_percent="0.7">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_area_code"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="2"
+            android:background="@color/gray_light"
+            android:hint="区号"
+            android:text="+86"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="30sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_phone"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="8"
+            android:background="@color/gray"
+            android:hint="请输入手机号"
+            android:paddingStart="20dp"
+            android:textColorHint="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_auth_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/btn_log_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_phone"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintWidth_percent="0.7">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_auth_code"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="7"
+            android:background="@color/gray"
+            android:hint="请输入验证码"
+            android:paddingStart="20dp"
+            android:textColorHint="@color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btn_get_auth_code"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="3"
+            android:background="@color/gray_light"
+            android:text="获取验证码"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_log_in"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="登录"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/txt_user_agreement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_auth_code"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <TextView
+        android:id="@+id/txt_user_agreement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="登录即同意爱奇艺用户协议"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_log_in" />
+
+
+    <TextView
+        android:id="@+id/btn_sign_in"
+        android:layout_width="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="点此注册"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_user_agreement" />
+</androidx.constraintlayout.widget.ConstraintLayout>

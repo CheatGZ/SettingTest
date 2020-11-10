@@ -8,12 +8,15 @@ import android.view.ViewTreeObserver
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.settingtest.Adapter.ViewPager2FragmentAdapter
 import com.example.settingtest.Fragment.CommonNavHostFragment
 import com.example.settingtest.Fragment.LabFragment
 import com.example.settingtest.Fragment.PrivacyNavHostFragment
+import com.example.settingtest.Fragment.UserNavHostFragment
 import com.example.settingtest.R
 import com.example.settingtest.Utils.HtmlTagHandler
+import com.example.settingtest.Utils.SetDrawableStyle
 import com.example.settingtest.databinding.ActivityMainBinding
 
 
@@ -26,33 +29,44 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAdapter: ViewPager2FragmentAdapter
     private lateinit var list: MutableList<Fragment>
+    private  var fragmentPosition:Int=0
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         initView()
+        initTabView()
+    }
+
+    private fun initView() {
+        list = ArrayList()
+        list.add(UserNavHostFragment())
+        list.add(CommonNavHostFragment())
+        list.add(PrivacyNavHostFragment())
+        list.add(LabFragment())
+        mAdapter = ViewPager2FragmentAdapter(supportFragmentManager, lifecycle, list)
+        binding.viewPager2Fragment.adapter = mAdapter
+        binding.viewPager2Fragment.isUserInputEnabled = false
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun initView() {
+    private fun initTabView() {
         /** 修改radibutton样式*/
         val vto: ViewTreeObserver = binding.rbCommon.viewTreeObserver
         vto.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 binding.rbCommon.viewTreeObserver.removeOnGlobalLayoutListener(this)
-
-                val drawUser = binding.rbUser.compoundDrawables
+                SetDrawableStyle.setRoundDrawableTop(this@MainActivity, R.mipmap.ic_test, binding.rbUser, 300, 0, 50)
                 val drawableCommon = binding.rbCommon.compoundDrawables
                 val drawablePrivacy = binding.rbPrivacy.compoundDrawables
                 val drawableLab = binding.rbLab.compoundDrawables
                 val rec = Rect(0, 0, drawableCommon[0].minimumWidth * 2 / 5, drawableCommon[0].minimumHeight * 2 / 5)
-                drawUser[1].bounds = Rect(0, 0, (drawUser[1].minimumWidth * 1.5).toInt(), (drawUser[1].minimumHeight * 1.5).toInt())
                 drawableCommon[0].bounds = rec
                 drawablePrivacy[0].bounds = rec
                 drawableLab[0].bounds = rec
-                binding.rbUser.setCompoundDrawables(null, drawUser[1], null, null)
                 binding.rbCommon.setCompoundDrawables(drawableCommon[0], null, null, null)
                 binding.rbPrivacy.setCompoundDrawables(drawablePrivacy[0], null, null, null)
                 binding.rbLab.setCompoundDrawables(drawableLab[0], null, null, null)
@@ -65,21 +79,21 @@ class MainActivity : AppCompatActivity() {
                 null,
                 HtmlTagHandler("myfont"))
 
-        list = ArrayList()
-        list.add(CommonNavHostFragment())
-        list.add(PrivacyNavHostFragment())
-        list.add(LabFragment())
-        mAdapter = ViewPager2FragmentAdapter(supportFragmentManager, lifecycle, list)
-        binding.viewPager2.adapter = mAdapter
-        binding.viewPager2.isUserInputEnabled = false
-        binding.rbCommon.isChecked = true
 
-        binding.radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-            when (radioGroup.checkedRadioButtonId) {
-                R.id.rb_common -> binding.viewPager2.setCurrentItem(0, false)
-                R.id.rb_privacy -> binding.viewPager2.setCurrentItem(1, false)
-                R.id.rb_lab -> binding.viewPager2.setCurrentItem(2, false)
+        binding.rbUser.isChecked = true
+
+        binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.rb_user -> binding.viewPager2Fragment.setCurrentItem(0, false)
+                R.id.rb_common -> binding.viewPager2Fragment.setCurrentItem(1, false)
+                R.id.rb_privacy -> binding.viewPager2Fragment.setCurrentItem(2, false)
+                R.id.rb_lab -> binding.viewPager2Fragment.setCurrentItem(3, false)
             }
+            fragmentPosition=checkedId
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return Navigation.findNavController(this,R.id.fragment_nav).navigateUp()
     }
 }

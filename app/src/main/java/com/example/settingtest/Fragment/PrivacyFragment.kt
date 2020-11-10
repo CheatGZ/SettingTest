@@ -1,7 +1,6 @@
 package com.example.settingtest.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.example.settingtest.Adapter.AppManageAdapter
 import com.example.settingtest.Entity.AppAuthorityData
 import com.example.settingtest.R
 import com.example.settingtest.View.BaseRecyclerViewAdapter
-import com.example.settingtest.View.OnItemChildClickListener
 import com.example.settingtest.View.OnItemClickListener
 import com.example.settingtest.databinding.FragmentPrivacyBinding
 import java.util.*
@@ -53,7 +51,7 @@ class PrivacyFragment : Fragment() {
         })
 
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        binding!!.revApp.layoutManager = linearLayoutManager
-        binding!!.revApp.adapter = mAdapter
+        binding.revApp.layoutManager = linearLayoutManager
+        binding.revApp.adapter = mAdapter
     }
 }

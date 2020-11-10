@@ -8,8 +8,7 @@ import android.view.View
 import android.widget.CompoundButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.settingtest.R
-import com.example.settingtest.databinding.ViewLabelNewBinding
-import com.google.android.material.switchmaterial.SwitchMaterial
+import com.example.settingtest.databinding.ViewLabelBinding
 
 /**
  * @author zhangyongkang
@@ -17,9 +16,9 @@ import com.google.android.material.switchmaterial.SwitchMaterial
  * com.example.settingtest.View
  */
 class LabelView : ConstraintLayout {
-    private var binding: ViewLabelNewBinding = ViewLabelNewBinding.inflate(LayoutInflater.from(context), this, true)
+    private var binding: ViewLabelBinding = ViewLabelBinding.inflate(LayoutInflater.from(context), this, true)
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
         val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.LabelView)
@@ -28,7 +27,8 @@ class LabelView : ConstraintLayout {
         val txtDescription = typedArray.getString(R.styleable.LabelView_descriptionText)
         val switchStatus = typedArray.getBoolean(R.styleable.LabelView_switchStatus, false)
         val labelType = typedArray.getInteger(R.styleable.LabelView_labelType, 0)
-
+        val btnOne = typedArray.getString(R.styleable.LabelView_btnOne)
+        val btnTwo = typedArray.getString(R.styleable.LabelView_btnTwo)
 
 
         binding.imgIcon.setImageDrawable(imgIcon)
@@ -38,11 +38,22 @@ class LabelView : ConstraintLayout {
         } else {
             binding.txtDescription.text = txtDescription
         }
+
         when (labelType) {
             LABEL_GOTO -> binding.layoutGoto.visibility = View.VISIBLE
             LABEL_SWITCH -> {
                 binding.btnSwitch.visibility = View.VISIBLE
                 binding.btnSwitch.isChecked = switchStatus
+            }
+            LABEL_BUTTON -> {
+                if (btnOne != null && btnOne.isNotEmpty()) {
+                    binding.btnOne.visibility = View.VISIBLE
+                    binding.btnOne.text = btnOne
+                    if (btnTwo != null && btnTwo.isNotEmpty()) {
+                        binding.btnTwo.visibility = View.VISIBLE
+                        binding.btnTwo.text = btnTwo
+                    }
+                }
             }
         }
         typedArray.recycle()
@@ -95,6 +106,15 @@ class LabelView : ConstraintLayout {
         binding.btnSwitch.setOnCheckedChangeListener(onCheckedChangeListener.invoke())
     }
 
+    /** 设置btnOne状态监听 */
+    fun setBtnOneClickListener(onClickListener: OnClickListener) {
+        binding.btnOne.setOnClickListener(onClickListener)
+    }
+
+    /** 设置BtnTwo状态监听 */
+    fun setBtnTwoClickListener(onClickListener: OnClickListener) {
+        binding.btnTwo.setOnClickListener(onClickListener)
+    }
 
 
     companion object {
@@ -117,5 +137,13 @@ class LabelView : ConstraintLayout {
          * 可以显示新消息通知Notify
          */
         const val LABEL_GOTO = 2
+
+        /** btn点击Label
+         * 右侧显示两个btn按钮
+         * 从右向左分别为btnOne、btnTwo
+         * 显示按钮请给按钮复制app:btnOne 或app:btnTwo
+         * 如果仅有一个btn，请赋值app:btnOne
+         */
+        const val LABEL_BUTTON = 3
     }
 }
