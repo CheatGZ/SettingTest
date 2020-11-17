@@ -1,7 +1,9 @@
 package com.example.settingtest.Fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +16,8 @@ import com.example.settingtest.databinding.FragmentCommonBinding
 
 
 class CommonFragment : Fragment() {
-    private lateinit var binding: FragmentCommonBinding
+    private var _binding: FragmentCommonBinding? = null
+    private val binding get()=_binding!!
     private val onClickListener = View.OnClickListener {
         when (it) {
             binding.labelAboutMachine -> {
@@ -29,13 +32,22 @@ class CommonFragment : Fragment() {
         }
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("Kang onCreate", "${System.currentTimeMillis()}")
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCommonBinding.inflate(inflater)
 
-
+        Log.d("Kang onCreateView befor", "${System.currentTimeMillis()}")
+        _binding = FragmentCommonBinding.inflate(inflater, container, false)
+        Log.d("Kang onCreateView after", "${System.currentTimeMillis()}")
 
         initView()
         return binding.root
@@ -89,6 +101,11 @@ class CommonFragment : Fragment() {
 
         }
         return value
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

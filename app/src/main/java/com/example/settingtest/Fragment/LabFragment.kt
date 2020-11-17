@@ -14,7 +14,6 @@ import com.example.settingtest.databinding.FragmentLabBinding
  * com.example.settingtest.View
  */
 class LabFragment : Fragment() {
-    private var expandFlag = false
     private lateinit var binding: FragmentLabBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentLabBinding.inflate(inflater)

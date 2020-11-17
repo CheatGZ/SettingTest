@@ -2,14 +2,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="false">
         <shape>
-            <solid android:color="@color/gray_light" />
+            <solid android:color="@color/gray_31" />
             <corners android:bottomLeftRadius="4dp"
                 android:bottomRightRadius="4dp"/>
         </shape>
     </item>
     <item android:state_focused="true">
         <shape>
-            <solid android:color="@color/gray_dark" />
+            <solid android:color="@color/gray_1c" />
             <corners android:bottomLeftRadius="4dp"
                 android:bottomRightRadius="4dp"/>
         </shape>

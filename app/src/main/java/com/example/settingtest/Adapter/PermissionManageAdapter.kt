@@ -1,9 +1,9 @@
 package com.example.settingtest.Adapter
 
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.settingtest.Entity.AppManageData
 import com.example.settingtest.R
-import com.example.settingtest.View.BaseRecyclerViewAdapter
-import com.example.settingtest.View.BaseRecyclerViewHolder
 import com.example.settingtest.View.LabelView
 
 /**
@@ -12,8 +12,8 @@ import com.example.settingtest.View.LabelView
  * SettingTest
  */
 
-class AppAuthorityManageAdapter(data: MutableList<AppManageData>?) : BaseRecyclerViewAdapter<AppManageData, BaseRecyclerViewHolder>(R.layout.item_app_authority_manage, data) {
-    override fun convert(holder: BaseRecyclerViewHolder, item: AppManageData) {
+class PermissionManageAdapter(data: MutableList<AppManageData>?) : BaseQuickAdapter<AppManageData, BaseViewHolder>(R.layout.item_app_authority_manage, data) {
+    override fun convert(holder: BaseViewHolder, item: AppManageData) {
         val view = holder.getView<LabelView>(R.id.label_view)
         view.run {
             setTitleText(item.title)
@@ -21,5 +21,9 @@ class AppAuthorityManageAdapter(data: MutableList<AppManageData>?) : BaseRecycle
             setSwitchStatus(item.status)
             setImage(item.drawable)
         }
+    }
+
+    override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
+
     }
 }

@@ -22,7 +22,11 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:popExitAnim="@android:anim/slide_out_right">
+            <argument
+                android:name="appId"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/privacy_statement_fragment"
@@ -31,5 +35,9 @@
     <fragment
         android:id="@+id/app_manage_fragment"
         android:name="com.example.settingtest.Fragment.AppAuthorityManageFragment"
-        tools:layout="@layout/fragment_app_manage" />
+        tools:layout="@layout/fragment_app_manage">
+        <argument
+            android:name="appId"
+            app:argType="string" />
+    </fragment>
 </navigation>
