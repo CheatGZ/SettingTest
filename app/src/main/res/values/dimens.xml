@@ -13,6 +13,8 @@
     <dimen name="text_margin">16dp</dimen>
 
 
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_18">18sp</dimen>
     <dimen name="text_size_20">20sp</dimen>
@@ -20,6 +22,7 @@
     <dimen name="text_size_32">32sp</dimen>
 
     <dimen name="margin_min4">-4dp</dimen>
+    <dimen name="margin_min1">-1dp</dimen>
     <dimen name="margin_0">0dp</dimen>
     <dimen name="margin_1">1dp</dimen>
     <dimen name="margin_2">2dp</dimen>
@@ -56,4 +59,6 @@
     <dimen name="view_label_height">88dp</dimen>
     <dimen name="switch_width">58dp</dimen>
     <dimen name="switch_height">32dp</dimen>
+    <dimen name="margin_248">248dp</dimen>
+    <dimen name="margin_246">206dp</dimen>
 </resources>

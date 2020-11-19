@@ -13,4 +13,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="text_collapse">可以看到约束布局和Rv都是继承自,但是，Rv还同时实现了，相应的就是需要处理滑动时间和事件分发，那么约束布局的设计初衷是减少嵌套，约束布局不建议用在有滑动控件的情况下，这是在约束布局设计的时候就是这样设计的。因为约束布局里面的每个控件的位置都是被约束给相对锁定的。
+但是我的结构确实是复杂了点，外层Rv的跟布局是约束布局，下面又存在一个Rv,这样会导致事件分发和处理变得很耗时，也就造成了卡顿和错乱。</string>
 </resources>
