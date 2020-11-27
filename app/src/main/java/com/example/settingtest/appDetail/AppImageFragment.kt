@@ -1,4 +1,4 @@
-package com.example.settingtest.AppFragment
+package com.example.settingtest.appDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater

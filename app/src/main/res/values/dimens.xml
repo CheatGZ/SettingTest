@@ -54,6 +54,7 @@
     <dimen name="margin_50">50dp</dimen>
     <dimen name="margin_60">60dp</dimen>
     <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_200">200dp</dimen>
 
     <dimen name="title_setting_height">104dp</dimen>
     <dimen name="view_label_height">88dp</dimen>

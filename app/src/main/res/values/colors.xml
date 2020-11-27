@@ -39,6 +39,7 @@
     <color name="gray_light">#313131</color>
 
     <color name="green_accent">#ff00bf6c</color>
+    <color name="green_accent_light">#192e25</color>
 
     <color name="text_color_primary">#EAEAEA</color>
     <color name="text_color_second">#B9B9B9</color>

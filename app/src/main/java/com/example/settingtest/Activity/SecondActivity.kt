@@ -22,6 +22,8 @@ import com.example.settingtest.Utils.ViewHintUtil.Companion.showSnackBar
 import com.example.settingtest.View.BaseRecyclerViewAdapter
 import com.example.settingtest.View.BaseRecyclerViewHolder
 import com.example.settingtest.View.OnItemClickListener
+import com.example.settingtest.appDetail.AppDetailActivity
+import com.example.settingtest.appfilter.AppFilterActivity
 import com.example.settingtest.databinding.ActivitySecondBinding
 import com.youth.banner.adapter.BannerAdapter
 import com.youth.banner.holder.BannerImageHolder
@@ -41,15 +43,17 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var listAppCommendB: MutableList<AppCommendData>
     private lateinit var listAppCommendC: MutableList<AppCommendData>
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnAppLibrary.setOnClickListener {
+            val intent1=Intent(this,AppFilterActivity::class.java)
+            startActivity(intent1)
+        }
         initView()
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun initView() {
         binding.scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > 350) {
@@ -146,7 +150,7 @@ class SecondActivity : AppCompatActivity() {
             mAdapter.setOnItemClickListener(object : OnItemClickListener {
                 override fun onItemClick(adapter: BaseRecyclerViewAdapter<*, *>, view: View, position: Int) {
                     view.showSnackBar("${position}")
-                    val intent= Intent(context,AppDetailActivity::class.java)
+                    val intent= Intent(context, AppDetailActivity::class.java)
                     context.startActivity(intent)
                 }
             })

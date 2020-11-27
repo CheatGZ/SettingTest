@@ -13,7 +13,7 @@ import com.example.settingtest.R
  * @date 2020/11/11
  * com.qiyu.vraio.settings.itemDecoration
  */
-class MyItemDecoration(val context: Context, val orientation: Int, val lastItemDecoration: Boolean = true) : RecyclerView.ItemDecoration() {
+class MyItemDecoration(val context: Context, val orientation: Int=RecyclerView.HORIZONTAL, private val lastItemDecoration: Boolean = true) : RecyclerView.ItemDecoration() {
     private var mDividerHeight: Int = 1
     private var mPaint: Paint = Paint()
     private var margin: Int = 0
@@ -45,10 +45,13 @@ class MyItemDecoration(val context: Context, val orientation: Int, val lastItemD
             state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-        if (orientation == RecyclerView.HORIZONTAL) {
-            outRect.right = mDividerHeight//指相对itemView右侧的偏移量
-        } else if (orientation == RecyclerView.VERTICAL) {
-            outRect.bottom = mDividerHeight//指相对itemView下方的偏移量
+
+        if (parent.getChildAdapterPosition(view) != 0) {
+            if (orientation == RecyclerView.HORIZONTAL) {
+                outRect.left = mDividerHeight//指相对itemView右侧的偏移量
+            } else if (orientation == RecyclerView.VERTICAL) {
+                outRect.top = mDividerHeight//指相对itemView下方的偏移量
+            }
         }
     }
 

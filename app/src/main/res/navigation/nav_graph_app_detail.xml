@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_app_detail"
+    app:startDestination="@id/appDetailFragment">
+
+    <fragment
+        android:id="@+id/appDetailFragment"
+        android:name="com.example.settingtest.appDetail.AppDetailFragment"
+        android:label="fragment_common"
+        tools:layout="@layout/fragment_app_detail">
+        <action
+            android:id="@+id/action_appDetailFragment_to_allParagraphFragment"
+            app:destination="@id/allParagraphFragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/allParagraphFragment"
+        android:name="com.example.settingtest.appDetail.AllParagraphFragment"
+        android:label="fragment_common"
+        tools:layout="@layout/fragment_all_paragraph">
+        <argument
+            android:name="paragraphPosition"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+</navigation>

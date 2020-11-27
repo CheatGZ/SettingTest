@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_28">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_16">
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beat Saber"
+            android:textColor="@color/text_color_primary"
+            android:textSize="@dimen/text_size_28"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/app_evaluate"
+            android:layout_width="@dimen/margin_68"
+            android:layout_height="wrap_content"
+            android:background="@color/green_accent"
+            android:gravity="center"
+            android:text="特别好评"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name" />
+
+        <TextView
+            android:id="@+id/app_grade"
+            android:layout_width="@dimen/margin_32"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_31"
+            android:gravity="center"
+            android:text="9.7"
+            android:textColor="@color/green_accent"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintStart_toEndOf="@id/app_evaluate"
+            app:layout_constraintTop_toTopOf="@id/app_evaluate" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rev_label"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_8"
+            app:layout_constraintBottom_toBottomOf="@id/app_grade"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/app_grade"
+            app:layout_constraintTop_toTopOf="@id/app_grade" />
+
+        <TextView
+            android:id="@+id/app_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:textColor="@color/text_color_third"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_evaluate" />
+
+        <TextView
+            android:id="@+id/paragraph_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:text="短评"
+            android:textColor="@color/text_color_primary"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_description" />
+
+        <TextView
+            android:id="@+id/paragraph_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:text="(20)"
+            android:textColor="@color/text_color_primary"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="@id/paragraph_title"
+            app:layout_constraintStart_toEndOf="@id/paragraph_title" />
+
+        <ImageView
+            android:id="@+id/btn_edt_paragraph"
+            android:layout_width="@dimen/margin_20"
+            android:layout_height="@dimen/margin_20"
+            android:layout_marginStart="@dimen/margin_16"
+            android:src="@mipmap/icon_placeholder_20"
+            app:layout_constraintBottom_toBottomOf="@id/paragraph_title"
+            app:layout_constraintStart_toEndOf="@id/paragraph_count" />
+
+        <TextView
+            android:id="@+id/all_paragraph"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:drawableEnd="@mipmap/icon_placeholder_20"
+            android:drawablePadding="@dimen/margin_8"
+            android:gravity="bottom"
+            android:text="查看全部"
+            android:textColor="@color/text_color_third"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toBottomOf="@id/paragraph_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/paragraph_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rev_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paragraph_title" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rev_paragraph">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_more_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

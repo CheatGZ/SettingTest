@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SettingTest.NoActionBar">
         <activity
-            android:name=".Activity.AppDetailActivity"
+            android:name=".appDetail.AppDetailActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
             <intent-filter>
@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.SecondActivity" />
+        <activity android:name=".appfilter.AppFilterActivity" />
+<!--        <activity android:name=".appfilter.AppFilterActivity"/>-->
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.settingtest.AppFragment
+package com.example.settingtest.appDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,9 +17,12 @@ class AppVideoFragment : Fragment() {
     private val binding get() = _binding!!
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentAppVideoBinding.inflate(inflater, container, false)
+        initView()
         return binding.root
     }
 
+    private fun initView(){
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
